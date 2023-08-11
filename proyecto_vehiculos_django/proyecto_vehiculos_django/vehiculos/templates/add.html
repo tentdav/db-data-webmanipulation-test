@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+    {% block content %}
+    <!-- Formulario que guarda la informacion en la base de datos, protegida por el csrf_token -->
+    <div>
+        <form action="{% url 'add' %}" method="POST">
+            {% csrf_token %}
+            <label for="marca">Marca:</label>
+            <select class="formu" name="marca" id="marca">
+                <option value="Fiat">Fiat</option>
+                <option value="Ford">Ford</option>
+                <option value="Chevrolet">Chevrolet</option>
+                <option value="Toyota">Toyota</option>
+            </select>
+            <label for="modelo">Modelo:</label>
+            <textarea class="formu" name="modelo" id="modelo" cols="30" rows="1"></textarea>
+
+            <label for="carroceria">Serial carroceria:</label>
+            <textarea class="formu" name="carroceria" id="carroceria" cols="30" rows="1"></textarea>
+
+            <label for="motor">Serial motor:</label>
+            <textarea class="formu" name="motor" id="motor" cols="30" rows="1"></textarea>
+
+            <label for="categoria">Categoria:</label>
+            <select class="formu" name="categoria" id="categoria">
+                <option value="Particular">Particular</option>
+                <option value="Transporte">Transporte</option>
+                <option value="Carga">Carga</option>
+            </select>
+            
+            <label for="precio">Precio:</label>
+            <input class="formu" type="number" id="precio" name="precio">
+
+           
+
+            <input class="formu" type="submit" value="Enviar">
+
+        </form>
+    </div>
+    {% endblock %}
